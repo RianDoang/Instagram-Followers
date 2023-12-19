@@ -123,6 +123,7 @@ form .colm button {
 @media screen and (max-width: 576px) {
   body {
     overflow-y: scroll;
+    max-height: 20000vh;
   }
 
   nav {
