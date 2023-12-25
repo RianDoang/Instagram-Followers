@@ -43,7 +43,7 @@ nav .logo a {
   gap: 8px;
 }
 
-nav .logo a img {
+nav .logo img {
   width: 40px;
   object-fit: cover;
 }
@@ -60,9 +60,25 @@ nav ul {
 }
 
 nav ul li a {
+  display: flex;
+  flex-direction: column;
   text-decoration: none;
   font-weight: 500;
   color: rgb(26, 26, 26);
+}
+
+nav ul li a::after {
+  content: "";
+  width: 100%;
+  display: block;
+  border-bottom: 2px solid rgb(26, 26, 26);
+  transition: 0.2s linear;
+  border-radius: 5px;
+  transform: scaleX(0);
+}
+
+nav ul li a:hover::after {
+  transform: scaleX(1);
 }
 
 section .container {
@@ -102,7 +118,7 @@ section .container {
 }
 
 .right .colm h1 span {
-  color: #00E6B0;
+  color: #00e6b0;
 }
 
 .right .colm .desk {
@@ -133,26 +149,26 @@ section .container {
   font-size: 17px;
 }
 
-.right .colm  a {
+.right .colm button {
   margin-top: 50px;
-  background: linear-gradient(to right, #1FD0AA 0%, #00B2C8 52%, #19B2CF 100%);
-  width: 250px;
-  height: 65px;
+  background: linear-gradient(to right, #1fd0aa 0%, #00b2c8 52%, #19b2cf 100%);
+  width: 255px;
+  height: 70px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 7px;
-  text-decoration: none;
   color: white;
   font-weight: 600;
   border-radius: 5px;
-  border: 2px solid #1BF9D4;
-  box-shadow: 0px 16px 20px #61008F96;
+  border: 2px solid #1bf9d4;
+  box-shadow: 0px 16px 20px #61008f96;
   transform: scale(1);
   transition: 0.2s;
+  font-size: 16px;
 }
 
-.right .colm a:hover {
+.right .colm button:hover {
   transform: scale(1.02);
 }
 
@@ -162,15 +178,64 @@ section .container {
 
 @media screen and (max-width: 576px) {
   body {
-    overflow-y: auto; 
+    overflow-y: auto;
+  }
+
+  #bg-svg {
+    height: 105vh;
   }
 
   nav {
-    height: 100px;
+    height: 80px;
+  }
+
+  nav ul {
+    opacity: 0;
+    transform: translateY(0);
+    z-index: -1;
+    transition: .2s;
+    background-color: rgba(187, 187, 187, 0.507);
+    backdrop-filter: blur(2px);
+    border-radius: 5px; 
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    right: -50px;
+    top: 40px;
+  }
+  
+  nav ul.show {
+    transform: translateY(25px);
+    opacity: 1;
+    z-index: 1;
+  }
+
+  nav ul li {
+    background-color:transparent;
+    padding: 2px 5px;
+    transition: .2s;
+    
+  }
+
+  nav ul li:hover {
+    background-color: rgba(128, 128, 128, 0.322);
+    padding: 2px 5px;
+  }
+
+  nav ul li a::after {
+    content: "";
+    display: none;
   }
 
   nav .logo a {
+    font-size: 20px;
     margin-left: 15px;
+  }
+
+  nav .logo img {
+    width: 35px;
   }
 
   nav .hamburger-menu {
@@ -182,7 +247,7 @@ section .container {
     width: 40px;
     height: 35px;
     cursor: pointer;
-    margin-right: 8px;
+    margin-right: 15px;
     z-index: 1;
   }
 
@@ -193,49 +258,33 @@ section .container {
     width: 27px;
     height: 3px;
     border-radius: 2px;
-    background-color: red;
+    background-color: rgb(255, 60, 60);
   }
 
   .hamburger-active > span:nth-child(1) {
-    margin-left: 10px;
     transform: rotate(45deg);
     transform-origin: top left;
-    background-color: red;
+    background-color: #61008f96;
   }
 
   .hamburger-active > span:nth-child(2) {
-    margin-left: 10px;
     transform: scale(0);
   }
 
   .hamburger-active > span:nth-child(3) {
-    margin-left: 10px;
     transform: rotate(-45deg);
     transform-origin: bottom left;
-    background-color: red;
-  }
-
-  nav ul {
-    display: none;
-  }
-
-  section {
-    overflow-y: auto;
+    background-color: #61008f96;
   }
 
   section .container {
-    display: inline-block;
-    
-  }
-
-  /* section .container {
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 100%;
     padding: 50px 0;
     gap: 20px;
-  } */
+  }
 
   .container .left {
     width: 100%;
@@ -243,11 +292,18 @@ section .container {
   }
 
   .left img {
-    width: 600px;
+    width: 500px;
   }
 
   .container .right {
     width: 95%;
-    padding-bottom: 50px;
+  }
+
+  .right .colm h1 {
+    font-size: 50px;
+  }
+
+  .right .colm button {
+    width: 230px;
   }
 }
